@@ -16,6 +16,6 @@ Other planned Plug-ins are:
 Note that SetantaBustMod.js will be a tier 2 plug-in that relies both on the SetantaProgressionSystem.js plug-in AND the GalvMessageBusts.js plug-ins.
 
 Other Potential Plug-ins may include:
-SetantaPhoneMenu.js
-SetantaPowers.js
-SetantaSceneHelper.js
+* SetantaPhoneMenu.js
+* SetantaPowers.js
+* SetantaSceneHelper.js
