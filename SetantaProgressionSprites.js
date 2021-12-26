@@ -169,9 +169,10 @@ Game_ActorProgression.prototype.getActorSpriteName = function(){
 };
 
 Game_ActorProgression.prototype.setActorSpriteName = function(spriteName){
-    $gameActors.actor(this._actor_id)._characterIndex = (!!spriteName) ? spriteName : $gameActors.actor(this._actor_id)._characterIndex;
-    this._actorSpriteName = (!!spriteName) ? spriteName : this._actorSpriteName;
-    console.log(this._actorSpriteName);
+    //Set the global sprite sheet name
+    $gameActors.actor(this._actor_id)._characterName = (!!spriteName) ? spriteName : $gameActors.actor(this._actor_id)._characterName;
+    //set the local sprite sheet name
+    this._actorSpriteName = (!!spriteName) ? spriteName : this._actorSpriteName;    
 };
 
 Game_ActorProgression.prototype.addOutfit = function(outfit_label, index_number, hasSprite){
