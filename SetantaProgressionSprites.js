@@ -145,6 +145,7 @@ Setanta.SPS.reloadEventSprites = function(){
 Game_ProgressionSystem.prototype.addOutfit = function(actor_id, outfitLabel, outfitIndex, hasSprite){
     var index = this.getActorIndex(actor_id);
     if(index != -1){
+        hasSprite = hasSprite == "true";
         this._actors[index].addOutfit(outfitLabel, outfitIndex, hasSprite);
     }
 };
