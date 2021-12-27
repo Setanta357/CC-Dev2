@@ -63,7 +63,7 @@ Setanta.PS.pluginName = "SetantaProgressionSystem";
  * @text States Labels
  * @desc A list of possible character states
  * @type string
- * @default default
+ * @default default,wet,cum
  * 
  * 
  * 
