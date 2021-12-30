@@ -6,7 +6,7 @@ As of 12-24-2021 the plug-ins include:
 * SetantaQuestLog.js
 * SetantaProgressionSystem.js
 * SetantaProgressionSprites.js
-* SetnataBustMod.js
+* SetnataMessageBustMod.js
 * SetantaDayTimeSystem.js
 
 This will be the main repository for any personally made plug-ins. For a reference to the list of all used plug-ins in the game, refer to the [Plugins](https://github.com/Setanta357/CC-Dev2/wiki/Plug-ins) page of the wiki.
