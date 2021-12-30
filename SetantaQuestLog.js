@@ -307,7 +307,7 @@ Setanta.QL.pluginName = "SetantaQuestLog";
         // NOTE: May Possibly Add a $gameVariable flag here to run a gabMessages call at startup
         // to notify the player that their quests have been updated
         if(updated){
-            console.log("UPDATED!");
+
         }
     };
 
@@ -572,7 +572,7 @@ Setanta.QL.addQuest = function(quest_id){
             $gameSystem._quests.quests[index].status = 'active';
             $gameSystem._quests.quests[index].current_step = 0;
             if($gameSystem._quests.quests[index].game_variable){
-                $gameVariables[$gameSystem._quests.quests[index].game_variable] = 0;
+                $gameVariables._data[$gameSystem._quests.quests[index].game_variable] = 0;
             }
         }
     }
@@ -594,7 +594,7 @@ Setanta.QL.updateQuestStep = function(quest_id, force_complete){
             if(quest.status == 'active'){
                 //Update Quest Step and Corresponding Game Variable
                 quest.current_step += 1;
-                $gameVariables[quest.game_variable] += 1;
+                $gameVariables._data[quest.game_variable] += 1;
 
                 if(force_complete && quest.current_step >= quest.quest_steps){
                     quest.status = 'completed';

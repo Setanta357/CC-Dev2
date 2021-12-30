@@ -23,7 +23,6 @@ Setanta.MBM.actors = PluginManager.parameters(Setanta.MBM.pluginName)['Actors'].
 
 Sprite_GalvBust.prototype.loadBitmap = function() {
     const name = Setanta.MBM.getBustFilePath();
-	console.log(name);
     let img;
     if ($gameSystem.isBustDisabled()) {
         img = ImageManager.loadPicture('');
@@ -44,7 +43,6 @@ Sprite_GalvBust.prototype.loadBitmap = function() {
 
 Sprite_GalvBust.prototype.controlBitmap = function() {
 	if (this.hasSpriteChanged()) {
-		console.log('loading Sprite')
     	this.loadBitmap();  // If image changed, reload bitmap
 	};
 	
@@ -120,7 +118,6 @@ Sprite_GalvBust.prototype.hasSpriteChanged = function(){
 	var isMod = true;
 	var name = "";
 	if(!!actor){
-		console.log('actor present?')
 		var outfit = actor.getOutfit();
 		var state = actor.getState();
 		var index = $gameMessage.faceIndex() + 1;
@@ -144,9 +141,8 @@ Setanta.MBM.getBustFilePath = function(){
         var index = $gameMessage.faceIndex() + 1;
 
         name = $gameMessage.faceName() + '/' + outfit + '/' + state + '/' + index;
-      //  console.log(name)
     };
-	console.log(name)
+
     return name;
 }
 
@@ -165,7 +161,6 @@ Setanta.MBM.getCurrentActor = function(){
     	actor_name = $gameMessage.faceName().split('-')[0];
 	}
 	else{
-		console.log('_')
 		actor_name = $gameMessage.faceName().split("_")[0];
 	}
     var actor_id = Setanta.MBM.actors.indexOf(actor_name);

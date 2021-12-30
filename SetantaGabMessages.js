@@ -200,7 +200,9 @@ Window_Gab.prototype.initialize = function(rect){
 
 // Set the Message, open the window, and start the Animation process
 Window_Gab.prototype.showGab = function(message){
+    message = Window_Base.prototype.convertEscapeCharacters(message);
     this._gabMessage = message.split(/\r\n|\n|\r/);
+    // this._gabMessage = this._gabMessage.toString();
     this.open();
     this.refresh();
 

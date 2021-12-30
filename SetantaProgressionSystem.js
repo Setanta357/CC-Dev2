@@ -296,7 +296,6 @@ Game_ProgressionSystem.prototype.getActorOutfit = function(actor_id){
 
 Game_ProgressionSystem.prototype.getActorOutfitIndex = function(actor_id){
     var index = this.getActorIndex(actor_id);
-    console.log(index);
     if(index != -1){
         return this._actors[index].getOutfitIndexNumber(this._actors[index].getOutfit());
     }

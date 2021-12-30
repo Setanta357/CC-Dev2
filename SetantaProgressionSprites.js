@@ -158,7 +158,6 @@ Game_ActorProgression.prototype.initialize = function(actor_id, maxLevel, hasLev
         this._hasSprite[outfit] = true;
     };
     this._actorSpriteName = ($gameActors) ? $gameActors.actor(actor_id)._characterName : null;
-    console.log(this._actorSpriteName);
 };
 
 Game_ActorProgression.prototype.getActorSpriteNumber = function(){
