@@ -1,0 +1,31 @@
+{
+  { 
+    "quest_id": 0,
+   "title": "Spread The Word",
+   "description": "The Morrigan gave me her powers...I should get used to using them",
+   "quest_steps": 4,
+   "current_step": 0,
+   "quest_step_description": ["Corrupt 5 people, up to level 3", "Find Morrigans Layer", "Corrupt 10 people, up to level 3", "Find Morrigan"],
+   "quest_step_resolution": ["","I beginning to feel stronger! I might be able to fly solo now", "Now that she's out of me, let the fun begin", "I feel unstoppable! This can't be all there is though, can it?"],
+   "actor_id": 0,   
+   "status": "inactive", 
+   "completion_message": "I will make this world mine!",
+   "game_variable": null,
+  }
+
+  { 
+   "quest_id": 1,
+   "title": "Taking Control",
+   "description": "",
+   "quest_steps": 4,
+   "current_step": 0,
+   "quest_step_description": ["Corrupt 5 people, up to level 3", "Find Morrigans Layer", "Corrupt 10 people, up to level 3", "Find Morrigan"],
+   "quest_step_resolution": ["","I beginning to feel stronger! I might be able to fly solo now", "Now that she's out of me, let the fun begin", "I feel unstoppable! This can't be all there is though, can it?"],
+   "actor_id": 0,   
+   "status": "inactive", 
+   "completion_message": "I will make this world mine!",
+   "game_variable": null,
+  }
+
+
+}
