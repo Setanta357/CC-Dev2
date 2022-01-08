@@ -11,7 +11,7 @@
    "status": "inactive", 
    "completion_message": "I will make this world mine!",
    "game_variable": null,
-  }
+  },
 
   { 
    "quest_id": 1,
@@ -33,13 +33,13 @@
    "status": "inactive", 
    "completion_message": "Used, again...but, not for long",
    "game_variable": null,
-  }
+  },
 
   { 
    "quest_id": 2,
    "title": "Dominion",
    "description": "It's not over yet...I will not stand for being used again!",
-   "quest_steps": 5,
+   "quest_steps": 6,
    "current_step": 0,
    "quest_step_description": ["Enslave 8 People", 
                               "Talk to Morrigu", 
@@ -56,6 +56,28 @@
    "actor_id": 0,   
    "status": "inactive", 
    "completion_message": "That'll teach them, that'll teach them ALL. This world is mine!",
+   "game_variable": null,
+  },
+
+ { 
+   "quest_id": 3,
+   "title": "New World",
+   "description": "I've never thought about restarting the world...can I readlly do it?",
+   "quest_steps": 6,
+   "current_step": 0,
+   "quest_step_description": ["Talk to Nemain", 
+                              "Talk to Badb", 
+                              "Talk to Morrigu", 
+                              "Go to the Past", 
+                              "Restart the World"],
+   "quest_step_resolution": ["",
+                             "She's broken, and her words are hollow, but they help",
+                             "Take a breathe, you've done more than you've ever hoped",
+                             "I've already faced death once, I need to steel myself for this",
+                             ],
+   "actor_id": 0,   
+   "status": "inactive", 
+   "completion_message": "Congrats! You win! Enjoy the rest of the game!",
    "game_variable": null,
   }
 
