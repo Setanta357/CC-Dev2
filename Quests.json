@@ -107,4 +107,31 @@
    "status": "inactive",
    "completion_message": "That's all for this version, thanks for playing!",
    "game_variable": 3
+ },
+
+{
+  "quest_id": 5,
+  "title": "Dorothy's Debauchery",
+  "description": "Dorothy is the serious and strict librarian. Let's see if I can break her of that",
+  "quest_steps": 8,
+  "current_step": 0,
+  "quest_step_description": ["Talk to Dorothy",
+                            "Find more information on Dorothy",
+                            "Speak to Dorohty again",
+                            "Ask Dorothy about the Students",
+                            "Find Dorothy a student",
+                            "See what Dorothy's up to",
+                            "Find Rose",
+                            "Bring Rose to Dorothy"],
+  "quest_step_resolution":["",
+                          "She's an uptight b****, but something seemed off about her...I should ask around",
+                          "So thats it! Let's see if I can use what I learned to my advantage",
+                          "Hmmm...maybe I can use her for something",
+                          "Who should be first? Oh I know, maybe her...",
+                          "Maybe I should check in on Dorothy",
+                          "That was peculiar...let's do some more digging",
+                          "Is that how it is? Let's not waste any time then, let's bring Dorothy her favorite pupil"],
+  "actor_id": null,
+  "status": "inactive",
+  "completion_message": "That's all for this version, thanks for playing!"
 }
