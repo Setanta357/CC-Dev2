@@ -63,7 +63,7 @@
    "quest_id": 3,
    "title": "New World",
    "description": "I've never thought about restarting the world...can I readlly do it?",
-   "quest_steps": 6,
+   "quest_steps": 5,
    "current_step": 0,
    "quest_step_description": ["Talk to Nemain", 
                               "Talk to Badb", 
@@ -74,11 +74,37 @@
                              "She's broken, and her words are hollow, but they help",
                              "Take a breathe, you've done more than you've ever hoped",
                              "I've already faced death once, I need to steel myself for this",
+                             ""
                              ],
    "actor_id": 0,   
    "status": "inactive", 
-   "completion_message": "Congrats! You win! Enjoy the rest of the game!",
+   "completion_message": "Congrats! You win! Enjoy the the spoils!",
    "game_variable": null,
-  }
-
+ },
+ 
+ {
+   "quest_id": 4,
+   "title": "Christine's Emergence",
+   "description": "I've never really had a problem with her, but we could stand to be closer. Let's see how far she will go",
+   "quest_steps": 7,
+   "current_step": 0,
+   "quest_step_description": ["Visit the highschool on a weekday morning",
+                             "Talk to \n[3] in the afternoon",
+                             "Find a way into \n[3]'s room",
+                             "Make a copy of \n[3]'s key",
+                             "Surprise \n[3] in her room in the morning",
+                             "Find \n[3] at her school"
+                             "Find a way to speak to \n[3]"],
+   "quest_step_resolution": ["",
+                            "Jenny seems nice, maybe I should ask \n[3] about her",
+                            "Whoa...\n[3] is really into Jenny...maybe I could use this, but first I should get closer to her",
+                            "I should make a copy of this",
+                            "All the things I can do with this now...hehe",
+                            "Well that went better than expected! Using her interest in Jenny was definitely the right call",
+                            "She's pissed at me now...how do I get her to talk to me? Maybe I could...",
+                            "Phew, that was a risk that was well worth it"],
+   "actor_id": 3,
+   "status": "inactive",
+   "completion_message": "That's all for this version, thanks for playing!",
+   "game_variable": 3
 }
