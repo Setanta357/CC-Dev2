@@ -316,6 +316,32 @@
             "status":"inactive",
             "completion_message":"That's all for this version, thanks for playing!",
             "game_variable":null
+        },
+        {
+            "quest_id":11,
+            "title":"Maria's Modesty",
+            "description":"Maria, the shopkeeper. A nice quiet girl, let's change that shall we.",
+            "quest_steps":5,
+            "current_step":0,
+            "quest_step_description":[
+                "Get her alone",
+                "Get to know Maria",
+                "Celebrate Maria's Promotion",
+                "Ask about selling Adult Toys",
+                "Have Maria use a toy",
+            ],
+            "quest_step_resolution":[
+                "",
+                "She seems really boring, maybe there's something I can learn about her though...",
+                "I don't think I learned anything important...but I should keep my eye out for that District Manager",
+                "Now that's what I call a celebration. Why not keep it going?",
+                "If I play my cards right, this will be an excellent investment",
+                "Let's have her orgasm all day and see what that does to her"
+            ],
+            "actor_id":null,
+            "status":"inactive",
+            "completion_message":"That's all for this version, thanks for playing!",
+            "game_variable":null
         }
     ]
 }
