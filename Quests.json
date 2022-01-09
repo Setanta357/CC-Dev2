@@ -203,5 +203,28 @@
   "status": "inactive"
   "completion_message": "That's all for this version, thanks for playing!",
   "game_variable": null  
+},
+{
+  "quest_id": 8,
+  "title": "Getting Even",
+  "description": "Revenge is a dish best served on her knees. Get ready Bryce, paybacks a b****",
+  "quest_steps": 0,
+  "current_step": 0,
+  "quest_step_description": ["",
+                             "",
+                             "",
+                             "",
+                             ""],
+  "quest_step_resolution": ["",
+                            "",
+                            "",
+                            "",
+                            "",
+                            ""],
+  "actor_id": null,
+  "status": "inactive",
+  "completion_message": "That's all for this version, thanks for playing!",
+  "game_variable": null
 }
+                             
 }
