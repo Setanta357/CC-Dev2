@@ -82,7 +82,7 @@
    "game_variable": null,
  },
  
- {
+  {
    "quest_id": 4,
    "title": "Christine's Emergence",
    "description": "I've never really had a problem with her, but we could stand to be closer. Let's see how far she will go",
@@ -107,9 +107,9 @@
    "status": "inactive",
    "completion_message": "That's all for this version, thanks for playing!",
    "game_variable": 3
- },
+  },
 
-{
+  {
   "quest_id": 5,
   "title": "Dorothy's Debauchery",
   "description": "Dorothy is the serious and strict librarian. Let's see if I can break her of that",
@@ -133,5 +133,45 @@
                           "Is that how it is? Let's not waste any time then, let's bring Dorothy her favorite pupil"],
   "actor_id": null,
   "status": "inactive",
-  "completion_message": "That's all for this version, thanks for playing!"
+  "completion_message": "That's all for this version, thanks for playing!",
+  "game_variable": null
+ },
+
+ {
+  "quest_id": 6,
+  "title": "Gaby's Greed",
+  "description": "Gaby huh? After what she did, I'll make her pay."
+  "quest_steps": 0,
+  "current_step": 0,
+  "quest_step_description": ["Gather information on Gaby",
+                             "Wait some time, then lay a trap for Gaby",
+                             "Corrupt Gaby some more",
+                             "Talk to Freya",
+                             "Buy the items Freya Mentioned",
+                             "Give the items to Freya",
+                             "Head to School",
+                             "Save $100 then talk to Gaby",
+                             "Steal Gaby's Phone and Purse",
+                             "Save $1000 then talk to Gaby"
+                             "Edge Gaby for a while",
+                             "Skip school for a Day",
+                             "Go to School in the Morning"],
+  "quest_step_resolution": ["Knowing what I do now, I should try to learn momre about her",
+                            "Money huh? I have a plan",
+                            "I should see how far I can push her",
+                            "Hmm...let's play with her head. What is it girls her age like these days?",
+                            "A phone and a purse, typical",
+                            "I should get these back to Freya",
+                            "I can't wait to see the look on her face",
+                            "I can tell she's jealous, just have to wait for her to come crawling to me",
+                            "That was fun, now let's make her desperate",
+                            "Damn this stuff is expensive, I better save up if I'm going to play this right",
+                            "Haha! It's all coming together. Let's see how crazy we can make her",
+                            "I deserve a day of rest don't I?",
+                            "Alright, let's see how she's doing"],
+  "actor_id": null,
+  "status": "inactive"
+  "completion_message": "That's all for this version, thanks for playing!",
+  "game_variable": null
+ }
 }
