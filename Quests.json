@@ -141,7 +141,7 @@
   "quest_id": 6,
   "title": "Gaby's Greed",
   "description": "Gaby huh? After what she did, I'll make her pay."
-  "quest_steps": 0,
+  "quest_steps": 13,
   "current_step": 0,
   "quest_step_description": ["Gather information on Gaby",
                              "Wait some time, then lay a trap for Gaby",
