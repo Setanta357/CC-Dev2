@@ -1,5 +1,4 @@
-{
-    "quests":[
+[
         {
             "quest_id":0,
             "title":"Spread The Word",
@@ -343,5 +342,4 @@
             "completion_message":"That's all for this version, thanks for playing!",
             "game_variable":null
         }
-    ]
-}
+]
