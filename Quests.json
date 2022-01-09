@@ -231,6 +231,27 @@
   "status": "inactive",
   "completion_message": "That's all for this version, thanks for playing!",
   "game_variable": null
-}
-                             
+},
+
+{
+  "quest_id": 9,
+  "title": "Naughty Nurse",
+  "description": "Rose was always good to me, but I'm not going to let that stop me from having my fun",
+  "quest_steps": 5,
+  "current_step": 0,
+  "quest_step_description": ["Ask Rose about the Book",
+                             "Talk to Rose when she is with Dorothy",
+                             "Get some alone time with Rose",
+                             "Learn more about Rose, and get her to forgive you",
+                             "Get to the Nurse's office during class time"],
+  "quest_step_resolution": ["",
+                            "Rose is so fun to play with...I should look into her more",
+                            "There's definitely something between her and Dorothy",
+                            "That...didn't go the way I thought it would...I should figure out what she likes and try to get on her good side",
+                            "How can I make sure we are going to be alone..."],
+   "actor_id": null,
+   "status": "inactive",
+   "completion_message": "That's all for this version, thanks for playing!",
+   "game_variable": null
+ }                           
 }
