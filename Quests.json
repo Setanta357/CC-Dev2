@@ -173,5 +173,35 @@
   "status": "inactive"
   "completion_message": "That's all for this version, thanks for playing!",
   "game_variable": null
- }
+ },
+
+{
+  "quest_id": 7,
+  "title": "Jenny's Just Desserts"
+  "description": "Jenny seems like a nice girl. Let's have some fun with her",
+  "quest_steps": 9,
+  "current_step": 0,
+  "quest_step_description": ["Help Jenny find her homework",
+                             "Corrupt Jenny Further",
+                             "Talk to Jenny in the afternoon",
+                             "Set a tutoring date",
+                             "Corrupt Jennny even further",
+                             "Talk to Jenny at her school",
+                             "Find a way to ensure she fails her next test",
+                             "Wait until Friday afternoon and talk to Jenny",
+                             "Go to Jenny's house in the evening"],
+  "quest_step_resolution": ["",
+                            "This is going to be fun",
+                            "I think she's ready to be pushed farther",
+                            "Aww man, it's a good thing I used to study, that could have gone wrong!",
+                            "This is perfect, I can keep making sure we are alone",
+                            "Let's see what Jenny's up to",
+                            "I should talk to her teacher",
+                            "Ha you stupid b****, teaches you right to just throw me away when you don't need me anymore",
+                            "Man, her Mom is pretty hot, it would be a shame if something happened ot her"],
+  "actor_id": null,
+  "status": "inactive"
+  "completion_message": "That's all for this version, thanks for playing!",
+  "game_variable": null  
+}
 }
