@@ -289,6 +289,33 @@
             "status":"inactive",
             "completion_message":"That's all for this version, thanks for playing!",
             "game_variable":null
+        },
+        {
+            "quest_id":10,
+            "title":"Teacher's Troubles",
+            "description":"Mrs. Smith...or should I say Teresa...always tried to so hard to be a good teacher, now it's my turn to teach her",
+            "quest_steps":6,
+            "current_step":0,
+            "quest_step_description":[
+                "Get her alone during lunch",
+                "Get information on Teresa's personal life",
+                "Find Teresa outside of school",
+                "Attend class like normal for a few days",
+                "Get Teresa's attention somehow",
+                "Figure out a way to get Teresa to focus on you"
+            ],
+            "quest_step_resolution":[
+                "It's nice to see her again, how can I get her alone...",
+                "That won't work forever...I wonder if someone around here knows what she does outside of teaching...",
+                "Rose said she likes to go to the park on the weekends...I should check there",
+                "She trys so hard to help...let's use that against her",
+                "I need her to pay a little more attention to me...maybe a failed test?",
+                "I need to do something much more drastic..."
+            ],
+            "actor_id":null,
+            "status":"inactive",
+            "completion_message":"That's all for this version, thanks for playing!",
+            "game_variable":null
         }
     ]
 }
