@@ -327,7 +327,7 @@
                 "Get to know Maria",
                 "Celebrate Maria's Promotion",
                 "Ask about selling Adult Toys",
-                "Have Maria use a toy",
+                "Have Maria use a toy"
             ],
             "quest_step_resolution":[
                 "",
@@ -336,6 +336,29 @@
                 "Now that's what I call a celebration. Why not keep it going?",
                 "If I play my cards right, this will be an excellent investment",
                 "Let's have her orgasm all day and see what that does to her"
+            ],
+            "actor_id":null,
+            "status":"inactive",
+            "completion_message":"That's all for this version, thanks for playing!",
+            "game_variable":null
+        },
+                {
+            "quest_id":12,
+            "title":"The Ropes",
+            "description":"Get the lay of the land, so to speak",
+            "quest_steps":5,
+            "current_step":0,
+            "quest_step_description":[
+                "Go to School",
+                "Go to the Library and Get Rose's Book",
+                "Head back to Rose",
+                "Go Home",
+            ],
+            "quest_step_resolution":[
+                "I should re-orient myself with things",
+                "Ah school...still sucks",
+                "I think the library is behind the school",
+                "Alright, let's get back to school"
             ],
             "actor_id":null,
             "status":"inactive",
