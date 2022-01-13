@@ -1,20 +1,3 @@
-Look into how the ImageManager works, and see if you can copy how it works.
-
-Also look into overwriting the Scene_Status popScene method, something is buggy when it normally pops.  
-
-
-
-If I am going to use multiple images to emulate animation, I will have to come up with a delay between images.
-Use the photos app to determine what the appropriate delay should be.
-
-
-If i am going to use video, then make the video using photos, then turn it into a webm file. Look into the Movie loader and try to copy that. However, there will still need to be a json to determine which video plays with what dialog.
-
-Look into making Dialog Windows appear again.
-
-
-
-
 
 
 var Imported = Imported || {};
@@ -24,7 +7,11 @@ var Setanta = Setanta || {};
 Setanta.SM = Setanta.SM || {};
 Setanta.SM.pluginName = "SetantaSceneManager";
 
-
+/*
+*@plugindesc This plug-in plays pre-defined scenes
+*@author Setanta
+*@target MZ
+**/
 function Scene_Movie(){
     this.initialize.apply(this, arguments);
 }
