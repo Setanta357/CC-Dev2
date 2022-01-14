@@ -1,136 +1,254 @@
-
-
 var Imported = Imported || {};
 Imported.Setanta = true;
 
 var Setanta = Setanta || {};
-Setanta.SM = Setanta.SM || {};
-Setanta.SM.pluginName = "SetantaSceneManager";
+Setanta.SH = Setanta.SH || {};
+Setanta.SH.pluginName = "SetantaSceneHandler";
 
-/*
-*@plugindesc This plug-in plays pre-defined scenes
-*@author Setanta
-*@target MZ
-**/
-function Scene_Movie(){
+
+function Scene_Loader(){
     this.initialize.apply(this, arguments);
-}
+};
 
-Scene_Movie.prototype = Object.create(Scene_Base.prototype);
-Scene_Movie.prototype.constructor = Scene_Movie;
+Scene_Loader.prototype.initialize = function(){
+    this._loadedScene = "";
+};
 
-Scene_Movie.prototype.initialize = function(){
-    Scene_Base.prototype.initialize.call(this);
-    this._sceneName = "";
-    this.setHandler("ok", this.onInput.bind(this));
-    this.setHandler("pagedown", this.onInput.bind(this));
-}
+Scene_Loader.prototype.loadScene = function(scene_name){
+    this._loadedScene = scene_name;
+    SceneManager.push(Scene_Play);
+};
 
-Scene_Movie.prototype.loadScene = function(scene_name){
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", movies + '/' + scene_name);
-        xhr.overrideMimeType("application/json");
-        xhr.onload = function(){
-            if(xhr.status == 200){
-                this.onLoad(xhr);
-            }
+$sceneLoader = new Scene_Loader();
+
+function Scene_Play(){
+    this.initialize.apply(this, arguments);
+};
+
+Scene_Play.prototype = Object.create(Scene_Message.prototype);
+Scene_Play.prototype.constructor = Scene_Play;
+
+Scene_Play.prototype.initialize = function(){
+    Scene_Message.prototype.initialize.call(this);
+    this._interpreter = new Game_Interpreter();
+    this._sceneName = $sceneLoader._loadedScene;
+
+};
+
+Scene_Play.prototype.create = function(){
+    this.createBackground();
+    this.createWindowLayer();
+    this.createAllWindows();
+    Scene_Base.prototype.create.call(this);
+   
+    this.loadSceneJson();    
+};
+
+Scene_Play.prototype.createBackground = function() {
+    //Displayed Image
+    this._curImg = new Sprite();
+    this._backgroundFilter = new PIXI.filters.BlurFilter();
+
+    //Blurred Background
+    this._backgroundSprite = new Sprite();
+    this._backgroundSprite.bitmap = SceneManager.backgroundBitmap();
+    this._backgroundSprite.filters = [this._backgroundFilter];
+    this._curImg.addChild(this._backgroundSprite);
+    this.addChild(this._backgroundSprite)
+    this.addChild(this._curImg)
+    this.setBackgroundOpacity(192);
+    this.setImgOpacity(255);
+};
+
+Scene_Play.prototype.setBackgroundOpacity = function(opacity) {
+    this._backgroundSprite.opacity = opacity;
+};
+
+Scene_Play.prototype.setImgOpacity = function(opacity) {
+    this._curImg.opacity = opacity;
+};
+
+Scene_Play.prototype.loadSceneJson = function(){
+
+
+    var filePath = "data/scenes/" + this._sceneName + ".json";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", filePath);
+    xhr.overrideMimeType("application/json");
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            SceneManager._scene.populateFieldData(xhr)
         }
-        //DO NOT DEFINE ERROR, IT WILL ERROR BECAUSE ITS DUMB
-        xhr.send();
-}
+    }
+    xhr.send();
+};
 
-//Assuming Webms will be used
-Scene_Movie.prototype.onLoad = function(response){
+Scene_Play.prototype.initScene = function(){
     
-    var resJson = JSON.parse(xhr.response);
-    var fileNames = resJson.file_names;
-    var dialogs = resJson.dialogs;
+    this.loadImage();
+    this.fillGameMessage(this._curDialog);
+    
+    this._sceneLoaded = true;
 
-    for(dialog in dialogs){
-     
-           // Load corresponding movie
-           if(dialog < fileNames.length){ 
-                    //the boolean is to denote 'repeat'
-                    SceneLoader.load(fileName(dialog, true));
-            }
+};
 
-            for(line of dialogs[dialog]){
-                  let re = /\n\[\d+\]/;  
- 	//Extract the Name
-                  let name = line.match(re[0]);
-	//Remove it from the line
-	line = line.replace(name, "");
- 
-	//I don't know what the actual call is right now....
-	GameMessage.show(name, line);
+Scene_Play.prototype.populateFieldData = function(xhr){
 
-    	//Wait for player to hit enter, space, etc, etc
-	while(!Input.isPressed("pagedown") || !Input.isPressed("ok") {}
+    var sceneJson = JSON.parse(xhr.response);
 
-            } 
+    this._imgSetName = sceneJson.img_set_name;
+    this._imgSets = sceneJson.img_sets;
+
+    this._curImgIndex = this._imgSets[0][0];
+    this._dialogs = sceneJson.dialogs;
+
+    this._curDialog = 0;
+
+    this._delay = sceneJson.delay;
+    this._delta = 0;
+    this.initScene();
+};
+
+Scene_Play.prototype.loadImage = function(){
+    var folder = "img/scenes/" + this._imgSetName + "/";
+    var file = this._curImgIndex.toString();
+
+
+    var img = ImageManager.loadBitmap(folder,file);
+
+    if(!img.isReady()){
+        //prevents some skipping
+        this._curImgIndex--;
+    }
+    if(img.isReady()){
+        this._curImg.bitmap = null;
+    }
+    this._curImg.bitmap = img;
+};
+
+Scene_Play.prototype.fillGameMessage = function(index){
+    var interpretList = [];
+    for(line of this._dialogs[index]){
+
+        var name = this.getName(line);
+        line = this.stripDialog(name, line);
+
+        var windowObj = this.getWindowObj(name);
+        interpretList.push(windowObj);
+
+        for(l of line.split("/n")){
+            interpretList.push(this.getDialogObj(l))
+        }
+    }
+    interpretList.push({code: 0, indent:0, parameters: []})
+    this._interpreter.setup(interpretList)
+};
+
+Scene_Play.prototype.getName = function(line){
+    var re = /\\n\[\d+\]/
+    return line.match(re)[0];
+};
+
+Scene_Play.prototype.stripDialog = function(name, line){
+    line = line.replace(name, "");
+    return line;
+};
+
+Scene_Play.prototype.getWindowObj = function(name){
+
+    return {
+        code: 101,
+        indent: 0,
+        parameters: ["", 0, 0, 2, name]
+
+    };
+};
+
+Scene_Play.prototype.getDialogObj = function(line){
+
+    return {
+        code: 401,
+        indent: 0,
+        parameters: [line]
+
+    }
+};
+
+Scene_Play.prototype.update = function(){
+
+    this._windowLayer.update();
+    if(!this._sceneLoaded){
+        this.initScene();
+    }
+    if(this._sceneLoaded){
+
+        this._interpreter.update();
        
-    } 
-    //Set a fade out, then pop the scene
-     GameEvent.fadeOut();
-    //Once all the loops are done, pop the scene
-    Scene_Manager.pop();   
-}
+        if(this.readyToUpdateImage()){
+            this.loadImage(this);
+        }
 
-//Load file, set fields for files, dialog sets, current pointers. On player input, increment the dialog. If dialog at end of set, move to next set
-//On each update, check to see if the video is playing, if it isn't, make it play, and ensure the dialog is still displayed.
+        if(this.dialogReadyToUpdate()){
+            this.updateDialog();
+        }
 
-Scene_Movie.prototype.onLoad = function(xhr) {
-
-    var resJson = JSON.parse(xhr.response);
-    this._fileNames = resJson.file_names;
-    this._dialogs = resJson.dialogs;
-    this._currentDialog = 0;
-    this._currentDialogSet = 0;
-    this._currentFileIndex = 0;
-
-    this._video = Video.initialize(1008, 816);
-    this._video.play(this._fileNames[this._currentFileIndex]);
-
-    this.displayMessage();
-}
-
-Scene_Movie.prototype.update = function(){
-
-    if(!this._video.isPlaying()) this._video.play(this._fileNames[this._currentFileIndex]);
-
-   this.displayMessage();
-}
-
-Scene_Movie.prototype.displayMessage = function(){
-
-    let re = /\n\[\d+\]/;  
-    var dialogLine = (this._dialogs[this._dialogSet])[this._currentDialog];
-
-    var name = dialogLine.match(re)[0];
-    dialogLine = dialogLine.replace(name, "");
-
-    GameMessage.message(name, dialogLine)
-}
-    
-Scene_Movie.prototype.onInput = function(){
-
-     //increment dialog line, if current value is more than current dialog set, then increment dialog set
-    // if current dialog set is larger than all dialog sets end scene, otherwise check to see if its lets than size of files
-
-
-    this._currentDialog += 1;
-    if(this._currentDialog >= this._dialogs[this._dialogSet].length){
-        this._dialogSet += 1;
-        this._currentDialog = 0;
-    }
-
-    if(this._dialogSet >= this._dialogs.length()){
-          this.fadeOut();
-          Scene_Manager.pop();
-    }
-    else {
-        if(this._dialogSet < this._fileNames.length - 1){
-            this._video.play(this._fileNames[this._dialogSet])
+        if(!$gameMessage.isBusy() && !this._dialogTransitioning){
+            SceneManager.pop();
         }
     }
+};
+
+Scene_Play.prototype.dialogReadyToUpdate = function(){
+
+    if(this.messageOnLast() && this.hasMoreMessages()){
+        return true;
+    }else if(this.messageOnLast() && !this.hasMoreMessages()){
+        this._dialogTransitioning = false;
+    }
+
+};
+
+Scene_Play.prototype.updateDialog = function(){
+    this._dialogTransitioning = true;
+    this._curDialog++;
+    this.fillGameMessage(this._curDialog);
 }
+
+Scene_Play.prototype.messageOnLast = function(){
+ 
+    if($gameMessage._texts){
+        return $gameMessage._texts[0] === this._dialogs[this._curDialog][-1];
+    }
+    
+};
+Scene_Play.prototype.hasMoreMessages = function(){
+    return this._curDialog < this._dialogs.length - 1;
+};
+
+Scene_Play.prototype.readyToUpdateImage = function(){
+    if(this._delta == 0){
+        if(this._curDialog >= this._imgSets.length){
+            this.loadFinalImage();
+        }
+        else
+        {
+            this._curImgIndex++;
+            if(this._curImgIndex > this._imgSets[this._curDialog][1]){
+                this._curImgIndex = this._imgSets[this._curDialog][0];
+            }
+            this._delta = this._delay;
+            this.loadImage(this);
+        }
+    }else{
+        this._delta--;
+    }
+};
+
+Scene_Play.prototype.loadFinalImage = function(){
+    var finalImgNum = this._imgSets[this._imgSets.length-1][1];
+    var img = ImageManager.loadBitmap("img/scenes/" + this._imgSetName + "/", finalImgNum.toString());
+    if(img.isReady()){
+        this._curImg.bitmap = null;
+    }
+    this._curImg.bitmap = img;
+};
